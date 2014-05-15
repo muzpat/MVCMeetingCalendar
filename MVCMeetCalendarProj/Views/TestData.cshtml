@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "TestData";
+}
+
+<h2>TestData</h2>
+
+ <table>
+
+ @foreach(String aLine in Model)
+ {
+   <tr>
+      <td>@aLine</td>
+
+   </tr>
+ }
+ </table>

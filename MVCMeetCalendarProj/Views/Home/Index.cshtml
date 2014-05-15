@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<p>
+    <b> To Run the Application: Create Test data and then Publish - (click the links below).  </b>
+</p>
+
+<p>
+    @Html.ActionLink("Create Test Data!", "Create")
+</p>
+<p>
+    @Html.ActionLink("Publish Meeting Calendar!", "Publish")
+</p>
+<p>
+    @Html.ActionLink("Update Meeting Calendar!", "UpdateCalendar")
+    </p>
+    <p>
+    @Html.ActionLink("To View the Program Specification", "Spec")
+</p>
+
+

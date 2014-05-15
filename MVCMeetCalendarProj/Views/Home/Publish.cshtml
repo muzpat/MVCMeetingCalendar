@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Publish";
+}
+
+<h2>Meeting Calendar</h2>
+
+  <table>
+ @foreach(String aLine in (List<string>) ViewBag.stringlist2)
+  
+ {
+      
+   <tr>
+      <td>@aLine</td>
+
+   </tr>
+ }
+ </table>

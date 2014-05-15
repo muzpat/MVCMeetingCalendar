@@ -1,0 +1,55 @@
+﻿@model  MVCMeetCalendarProj.Models.BookingViewModel
+@using (Html.BeginForm())
+{
+
+    <p>
+    The purpose of this page is to show knowledge of the MVC page cycle using a highly-typed view model, http get and http post.
+    <br />
+        There is no database behind this application so there is no data persistence.
+        </p>
+
+    <h2>UpdateCalendar</h2>
+    <h2>@ViewBag.Message</h2>
+    List<MVCMeetCalendarProj.Models.bookingRequest> myBookings = Model.CurrentCalendar;
+    
+    <table>
+        <th>Employee</th><th>Request Time</th><th>Meeting Time</th><th>Meeting Length</th>
+        @foreach (MVCMeetCalendarProj.Models.bookingRequest myBook in myBookings){
+            <tr>
+                <td>@myBook.EmployeeID.ToString()
+                </td>
+                <td>@myBook.requestTime
+                </td>
+                <td>@myBook.meetingTime
+                </td>
+                <td>@myBook.meetingLength.ToString()
+                </td>
+            </tr>
+        }
+    </table>  
+    <br />
+       @Html.Label("Add a Booking")
+       <br />
+    <table><tr><td>
+    @Html.Label("Employee")
+    @Html.DropDownListFor(m=>m.selecteditemDdlEmp, Model.ddlEmp)
+        </td>
+                <td>
+    @Html.Label("Meeting Day")
+    @Html.DropDownListFor(m=>m.selecteditemDdlMeetingDay, Model.ddlMeetingDay)
+        </td>
+        <td>
+    @Html.Label("Meeting Time")
+    @Html.DropDownListFor(m=>m.selecteditemDdlMeetingStart, Model.ddlMeetingStart)
+        </td>
+        <td>
+    @Html.Label("Meeting Length")
+    @Html.DropDownListFor(m=>m.selecteditemDdlMeetingLength, Model.ddlMeetingLength)
+        </td>
+
+
+           </tr></table>
+    <input type="submit" value="Save" />
+    
+}
+

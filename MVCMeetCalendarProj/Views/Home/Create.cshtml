@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Test Data</h2>
+  <table>
+ @foreach(String aLine in (List<string>) ViewBag.stringlist)
+  
+ {
+      
+   <tr>
+      <td>@aLine</td>
+
+   </tr>
+ }
+ </table>
+<p>
+    @Html.ActionLink("Publish Meeting Calendar!", "Publish")
+</p>
