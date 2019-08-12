@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCMeetCalendarProj", "MVCMeetCalendarProj\MVCMeetCalendarProj.csproj", "{1FB8229A-E3BF-4A58-AF4D-9E0F8DEF1961}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCMeetCalendarProj.Tests", "MVCMeetCalendarProj.Tests\MVCMeetCalendarProj.Tests.csproj", "{3706B9F8-84C3-4261-A5C0-E56FE1B1347C}"
@@ -22,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7ADCDFA-A581-4CA1-B1CF-CE8648104CAD}
 	EndGlobalSection
 EndGlobal

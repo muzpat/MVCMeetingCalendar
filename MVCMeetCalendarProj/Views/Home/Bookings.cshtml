@@ -1,0 +1,217 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+
+    <style>
+
+        html, body, .container
+{
+    height: 100%; 
+    min-height: 100%;
+}
+
+        a {
+  color: cornflowerblue;
+}
+
+.first {
+    float: left;
+    width: 20%;
+    height: 30%;
+    background-color: #E5E8E8;
+}
+
+.second{
+    float: left;
+    width: 20%;
+    height: 30%;
+    background-color: #D5DBDB;
+}
+
+
+.third{
+    float: right;
+    width: 80%;
+    height: 80%;
+    background-color: blue;
+}
+
+.fourth {
+    float: right;
+    width: 40%;
+    height: 20%;
+    background-color: #DDDDDD;
+}
+
+.last{
+    float: right;
+    width: 40%;
+    height: 20%;
+    background-color: yellow;
+}
+    </style>
+
+
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+  
+    <script src="~/Scripts/jquery-3.0.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="http//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src="//code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js" type="text/javascript"></script>
+</head>
+<body>
+
+
+  
+    <div class="container">
+        <h2 style="align-content:center">Boadroom Booking</h2>
+
+        <table class="table table_condensed" id="Grid"></table>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           
+            var array = @Html.Raw(Json.Encode(ViewBag.BookingDates));
+            var arraydays = @Html.Raw(Json.Encode(ViewBag.BookingDays));
+            var row = '<div  id="rw1" class="row">  ';
+            array.forEach(function(item, index) {
+              
+                if (index == 7) {
+                    row = row + '</br></br>'
+                    row = row + ' </div> <div id="rw2" class="row"><div id="col2" class="col">         <div id="crd" class="card" style="width: 18rem;">            <div id="ch" class="card-header">';
+                } else  {
+                    row = row + '    <div id="col1" class="col">         <div class="card"   id="card2" style="width: 18rem;">            <div  id="ch2" class="card-header">';
+                }
+                
+                row = row + '<b>' +  arraydays[index] + '</b></br>' + item ;
+                row = row + '</div> <ul class="list-group list-group-flush"> <li     class="list-group-item"><a  id="a'   + item.replace('/','').replace('/','') +     '9"   href="#"  class="mylink" style= "color:blue">9:00</a></li>';
+                row = row +                                                ' <li     class="list-group-item"><a  id="a'  + item.replace('/','').replace('/','') +     '10" href="#" class="mylink" style= "color:blue">10:00</a></li>';
+                row = row +                                                ' <li     class="list-group-item"><a  id="a'  + item.replace('/','').replace('/','') +     '11" href="#" class="mylink" style= "color:blue">11:00</a></li>';
+                row = row +                                                ' <li     class="list-group-item"><a  id="a'  + item.replace('/','').replace('/','') +     '12" href="#" class="mylink" style= "color:blue">12:00</a></li>';
+                row = row +                                                ' <li     class="list-group-item"><a  id="a'  + item.replace('/','').replace('/','') +     '13" href="#" class="mylink" style= "color:blue">13:00</a></li>';
+                row = row +                                                ' <li     class="list-group-item"><a  id="a'  + item.replace('/','').replace('/','') +     '14" href="#" class="mylink" style= "color:blue">14:00</a></li>';
+                row = row +                                                ' <li     class="list-group-item"><a  id="a'  + item.replace('/','').replace('/','') +     '15" href="#" class="mylink" style= "color:blue">15:00</a></li>';
+                row = row +                                                ' <li     class="list-group-item"><a  id="a'  + item.replace('/','').replace('/','') +     '16" href="#" class="mylink" style= "color:blue">16:00</a></li>';
+                row = row +                                                ' <li     class="list-group-item"><a  id="a'  + item.replace('/','').replace('/','') +     '17"  href="#" class="mylink" style= "color:blue">17:00</a></li>';
+                row = row +      '</ul>   </div>  </div>'
+
+            //    $('#Grid').append(row);
+             //   row = '';
+            });
+            row = row +      '</div> '
+            $('#Grid').append(row);
+
+            row = '';
+         
+            array.forEach(function(item, index) {
+              
+                var myId = 'a' +  item.replace('/','').replace('/','') + '9';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+                myId = 'a' +  item.replace('/','').replace('/','') + '10';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+                myId = 'a' +  item.replace('/','').replace('/','') + '11';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+                myId = 'a' +  item.replace('/','').replace('/','') + '12';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+                myId = 'a' +  item.replace('/','').replace('/','') + '13';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+                myId = 'a' +  item.replace('/','').replace('/','') + '14';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+                myId = 'a' +  item.replace('/','').replace('/','') + '15';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+                myId = 'a' +  item.replace('/','').replace('/','') + '16';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+                myId = 'a' +  item.replace('/','').replace('/','') + '17';         
+                $('#' + myId ).attr('onClick', 'linkaction(this);');
+
+            });
+
+
+        });
+
+        $(".mylink").click(function (e) {
+
+            var ch = e;
+            debugger;
+            alert('here!');
+        });
+        function book(name, e) {
+            var myId = e.id;
+            var Xexisting =  $('#' + myId )
+            var existing =  $('#' + myId ).text();
+    
+            existing = existing + ' ' + name;
+            $('#' + myId ).html( existing);
+          //  debugger;
+        }
+        function linkaction(e) {
+        //   if (typeof jQuery.ui != 'undefined') {
+        //       alert('no UI!!');
+        //   }
+        //   else{
+        //       alert('jQuery.ui loaded');
+        //   }
+            var ch = e;
+
+
+            $('<div></div>').appendTo('body')
+                .html('<div><h6>' + 'Booker: ' 
+                      + '<br/>   <p> </p>'
+    + '   <select id="postage">                      '
+    + '       <option value="">Please select...</option>    '
+    + '       <option value="1">Big Boss</option>    '
+    + '       <option value="2">Tina Sparkle</option>      '
+    + '       <option value="3">Frank </option>      '
+    + '       <option value="4">Murray</option>      '
+    + '       <option value="4">Unknown</option>      '
+    + '   </select>'   + '</h6></div>')
+                .dialog({
+                    modal: true, title: 'Booking Details ', zIndex: 10000, autoOpen: true,
+                    width: 'auto', resizable: false,
+                    buttons: {
+                        Cancel: function () {
+                            $(this).dialog("close");
+                        },
+                        Book: function () {
+                            var Name = $('#postage').find(":selected").text();
+                            book(Name, e);
+                            $(this).dialog("close");
+                        }
+                    },
+                    close: function (event, ui) {
+
+                        $(this).remove();
+                    }
+                });
+        }
+
+    </script>
+
+
+</body>
+</html>

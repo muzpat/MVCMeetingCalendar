@@ -15,6 +15,36 @@ namespace MVCMeetCalendarProj.Controllers
         {
             return View();
         }
+        public ActionResult Book()
+        {
+            return View();
+        }
+
+        public ActionResult Bookings()
+        {
+            List<string> myDates = new List<string>();
+            List<string> myDays = new List<string>();
+            myDates.Add( DateTime.Today.ToShortDateString());
+            int i = 1;
+            while (i <= 13)
+            {
+                myDates.Add(DateTime.Today.AddDays(i).ToShortDateString());
+                i++;
+
+            }
+            ViewBag.BookingDates = myDates;
+
+            myDays.Add("Today");
+            i = 1;
+            while (i <= 13)
+            {
+                myDays.Add(DateTime.Today.AddDays(i).DayOfWeek.ToString());
+                i++;
+
+            }
+            ViewBag.BookingDays = myDays;
+            return View();
+        }
         public ActionResult Spec()
         {
             return View();
